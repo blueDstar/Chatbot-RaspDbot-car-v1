@@ -1,28 +1,39 @@
 # RaspDbot-Car Chatbot (GTK4 Desktop App)
 
-Desktop chatbot chạy local trên Ubuntu bằng **Python + GTK4** và **llama-cpp-python** (GGUF).  
-App hỗ trợ:
-- ✅ Giao diện chat GTK4 (không đơ UI nhờ background thread)
-- ✅ Chọn model `.gguf` (dropdown, auto scan trong thư mục project)
-- ✅ Menu: New chat / Load history / Save history / Export text / Quit
-- ✅ Auto lưu lịch sử vào: `~/.local/share/raspdbot/history.json`
-- ✅ Bot xưng **"tôi"**, gọi người dùng là **"bạn"**
-- ✅ Chặn trường hợp model tự “hỏi–tự trả lời” bằng stop token + cắt output
+A lightweight **Ubuntu desktop chatbot** built with **GTK4 (PyGObject)** and **llama-cpp-python** to run **GGUF models locally** (offline).  
+It provides a responsive chat UI (LLM runs in a background thread), a **model picker** that scans `*.gguf` files in the project folder, and **persistent chat history** with load/save/export actions.
+
+## Features
+
+- GTK4 desktop UI (Ubuntu)
+- Runs **GGUF** models locally via `llama-cpp-python` (offline)
+- **Model selector** (dropdown, auto-scans `*.gguf` in the project directory)
+**Chat history**
+  - Auto-saves to `~/.local/share/raspdbot/history.json`
+  - Menu actions: New chat / Load history / Save history / Export as text
+- Assistant speaks as **“I”** and addresses the user as **“you”**
+- Safeguards to reduce hallucinated telemetry and multi-turn self-dialogue (stop tokens + output cleanup)
 
 ---
 
-## 1) Yêu cầu hệ thống
+## Requirements
 
-- Ubuntu Desktop 24.04 (khuyến nghị)
+- Ubuntu Desktop 24.04 (recommended)
 - Python 3.12
-- GTK4 + PyGObject (cài bằng `apt`)
-- Model GGUF (ví dụ):
-  - `raspdbot-car.Q4_K_M.gguf`
-  - `raspdbot-star.Q4_K_M.gguf`
+- GTK4 + PyGObject (installed via `apt`)
+- One or more `.gguf` model files (e.g. `raspdbot-car.Q4_K_M.gguf`, `raspdbot-star.Q4_K_M.gguf`)
 
 ---
 
-## 2) Cấu trúc thư mục
+## Project Layout
 
-Đặt các file như sau (cùng 1 thư mục):
+Keep these files in the same folder:
 
+```text
+RaspDbot/
+├─ gtk_raspdbot_app.py
+├─ raspdbot_bot.py
+├─ run.sh
+├─ requirements.txt
+├─ raspdbot-car.Q4_K_M.gguf
+└─ raspdbot-star.Q4_K_M.gguf
