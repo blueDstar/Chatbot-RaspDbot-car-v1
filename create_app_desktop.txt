@@ -1,0 +1,12 @@
+cat > ~/.local/share/applications/raspdbot.desktop <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=RaspDbot Chatbot
+Exec=/home/dmachine/Documents/RaspDbot/run.sh
+Terminal=false
+Categories=Utility;
+Icon=utilities-terminal
+EOF
+
+cp ~/.local/share/applications/raspdbot.desktop ~/Desktop/
+chmod +x ~/Desktop/raspdbot.desktop
