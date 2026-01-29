@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=RaspDbot Chatbot
+Exec=/home/dmachine/Documents/RaspDbot/run.sh
+Terminal=false
+Categories=Utility;
+Icon=utilities-terminal
